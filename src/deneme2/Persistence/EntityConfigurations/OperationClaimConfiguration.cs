@@ -13,6 +13,7 @@ using Application.Features.AuthorBooks.Constants;
 using Application.Features.CategoryBooks.Constants;
 using Application.Features.Publishers.Constants;
 using Application.Features.BookPublishers.Constants;
+using Application.Features.Members.Constants;
 
 
 namespace Persistence.EntityConfigurations;
@@ -411,6 +412,20 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
                 new() { Id = ++lastId, Name = PublishersOperationClaims.Create },
                 new() { Id = ++lastId, Name = PublishersOperationClaims.Update },
                 new() { Id = ++lastId, Name = PublishersOperationClaims.Delete },
+            ]
+        );
+        #endregion
+        
+        
+        #region Members
+        featureOperationClaims.AddRange(
+            [
+                new() { Id = ++lastId, Name = MembersOperationClaims.Admin },
+                new() { Id = ++lastId, Name = MembersOperationClaims.Read },
+                new() { Id = ++lastId, Name = MembersOperationClaims.Write },
+                new() { Id = ++lastId, Name = MembersOperationClaims.Create },
+                new() { Id = ++lastId, Name = MembersOperationClaims.Update },
+                new() { Id = ++lastId, Name = MembersOperationClaims.Delete },
             ]
         );
         #endregion

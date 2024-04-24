@@ -12,6 +12,7 @@ public class AuthorManager : IAuthorService
     private readonly IAuthorRepository _authorRepository;
     private readonly AuthorBusinessRules _authorBusinessRules;
 
+
     public AuthorManager(IAuthorRepository authorRepository, AuthorBusinessRules authorBusinessRules)
     {
         _authorRepository = authorRepository;

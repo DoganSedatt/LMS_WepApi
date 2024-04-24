@@ -9,10 +9,14 @@ using MediatR;
 using Application.Services.Categories;
 using Application.Services.CategoryBooks;
 using Application.Services.BookPublishers;
+using NArchitecture.Core.Application.Pipelines.Authorization;
+using Application.Features.Users.Constants;
+using System.ComponentModel;
+using Application.Features.Books.Constants;
 
 namespace Application.Features.Books.Commands.Create;
 
-public class CreateBookCommand : IRequest<CreatedBookResponse>, ICacheRemoverRequest, ILoggableRequest, ITransactionalRequest
+public class CreateBookCommand : IRequest<CreatedBookResponse>, ICacheRemoverRequest, ILoggableRequest, ITransactionalRequest,ISecuredRequest
 {
     public string Name { get; set; }
     public string ISBN { get; set; }
@@ -27,6 +31,8 @@ public class CreateBookCommand : IRequest<CreatedBookResponse>, ICacheRemoverReq
     public bool BypassCache { get; }
     public string? CacheKey { get; }
     public string[]? CacheGroupKey => ["GetBooks"];
+
+    public string[] Roles => new[] { BooksOperationClaims.Create ,BooksOperationClaims.Admin};
 
     public class CreateBookCommandHandler : IRequestHandler<CreateBookCommand, CreatedBookResponse>
     {

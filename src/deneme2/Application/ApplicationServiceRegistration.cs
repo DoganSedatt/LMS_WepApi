@@ -26,6 +26,7 @@ using Application.Services.AuthorBooks;
 using Application.Services.CategoryBooks;
 using Application.Services.Publishers;
 using Application.Services.BookPublishers;
+using Application.Services.Members;
 
 
 namespace Application;
@@ -90,6 +91,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IBookService, BookManager>();
         services.AddScoped<IBookPublisherService, BookPublisherManager>();
         services.AddScoped<IPublisherService, PublisherManager>();
+        services.AddScoped<IMemberService, MemberManager>();
         return services;
     }
 
