@@ -6,5 +6,5 @@ public class UpdatedAuthorResponse : IResponse
 {
     public Guid Id { get; set; }
     public string Name { get; set; }
-    public string IdendityNumber { get; set; }
+    public string IdentityNumber { get; set; }
 }

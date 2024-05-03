@@ -16,6 +16,7 @@ public class Book : Entity<Guid>
     public string Description { get; set; }
     public Guid CategoryId { get; set; }
     public Guid PublisherId { get; set; }
+    public Guid AuthorId { get; set; }
     public virtual ICollection<AuthorBook>? AuthorBooks { get; set; } 
     public virtual ICollection<CategoryBook>? CategoryBooks { get; set; } 
   

@@ -13,7 +13,7 @@ public class UpdateAuthorCommand : IRequest<UpdatedAuthorResponse>, ICacheRemove
 {
     public Guid Id { get; set; }
     public string Name { get; set; }
-    public string IdendityNumber { get; set; }
+    public string IdentityNumber { get; set; }
 
     public bool BypassCache { get; }
     public string? CacheKey { get; }

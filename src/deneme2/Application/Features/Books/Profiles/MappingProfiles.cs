@@ -14,6 +14,7 @@ public class MappingProfiles : Profile
 {
     public MappingProfiles()
     {
+        CreateMap<GetListBookListItemDto, Book>().ReverseMap().ForMember(i => i.AuthorName, opt => opt.MapFrom(j => j.AuthorBooks));
         CreateMap<Book, CreateBookCommand>().ReverseMap();
         CreateMap<Book, CreatedBookResponse>().ReverseMap();
         CreateMap<Book, UpdateBookCommand>().ReverseMap();

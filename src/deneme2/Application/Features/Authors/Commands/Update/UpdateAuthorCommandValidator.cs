@@ -8,6 +8,6 @@ public class UpdateAuthorCommandValidator : AbstractValidator<UpdateAuthorComman
     {
         RuleFor(c => c.Id).NotEmpty();
         RuleFor(c => c.Name).NotEmpty();
-        RuleFor(c => c.IdendityNumber).NotEmpty();
+        RuleFor(c => c.IdentityNumber).NotEmpty();
     }
 }

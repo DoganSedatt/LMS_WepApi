@@ -9,15 +9,15 @@ namespace Domain.Entities;
 public class Author : Entity<Guid>
 { 
     public string Name { get; set; }
-    public string IdendityNumber { get; set; }
+    public string IdentityNumber { get; set; }
     public virtual ICollection<AuthorBook>? AuthorBooks { get; set; }
     public Author()
     {
         
     }
-    public Author(Guid id,string name, string ıdendityNumber):base(id)
+    public Author(Guid id,string name, string ıdentityNumber):base(id)
     {
         Name = name;
-        IdendityNumber = ıdendityNumber;
+        IdentityNumber = ıdentityNumber;
     }
 }

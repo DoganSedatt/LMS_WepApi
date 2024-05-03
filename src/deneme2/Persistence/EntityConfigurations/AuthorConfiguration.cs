@@ -12,7 +12,7 @@ public class AuthorConfiguration : IEntityTypeConfiguration<Author>
 
         builder.Property(a => a.Id).HasColumnName("Id").IsRequired();
         builder.Property(a => a.Name).HasColumnName("Name");
-        builder.Property(a => a.IdendityNumber).HasColumnName("IdendityNumber");
+        builder.Property(a => a.IdentityNumber).HasColumnName("IdentityNumber");
         builder.Property(a => a.CreatedDate).HasColumnName("CreatedDate").IsRequired();
         builder.Property(a => a.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(a => a.DeletedDate).HasColumnName("DeletedDate");

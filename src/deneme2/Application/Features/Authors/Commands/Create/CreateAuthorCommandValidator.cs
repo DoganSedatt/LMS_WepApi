@@ -7,6 +7,6 @@ public class CreateAuthorCommandValidator : AbstractValidator<CreateAuthorComman
     public CreateAuthorCommandValidator()
     {
         RuleFor(c => c.Name).NotEmpty();
-        RuleFor(c => c.IdendityNumber).NotEmpty();
+        RuleFor(c => c.IdentityNumber).NotEmpty();
     }
 }

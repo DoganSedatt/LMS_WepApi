@@ -12,7 +12,7 @@ namespace Application.Features.Authors.Commands.Create;
 public class CreateAuthorCommand : IRequest<CreatedAuthorResponse>, ICacheRemoverRequest, ILoggableRequest, ITransactionalRequest
 {
     public string Name { get; set; }
-    public string IdendityNumber { get; set; }
+    public string IdentityNumber { get; set; }
 
     public bool BypassCache { get; }
     public string? CacheKey { get; }

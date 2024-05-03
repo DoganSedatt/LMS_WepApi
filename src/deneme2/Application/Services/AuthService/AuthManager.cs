@@ -21,6 +21,11 @@ public class AuthManager : IAuthService
     private readonly AuthBusinessRules _authBusinessRules;
     private readonly IUserService _userService;
 
+    public IUserOperationClaimRepository UserOperationClaimRepository { get; }
+    public IRefreshTokenRepository RefreshTokenRepository { get; }
+    public ITokenHelper<Guid, int> TokenHelper { get; }
+    public IConfiguration Configuration { get; }
+
     public AuthManager(
         IUserOperationClaimRepository userOperationClaimRepository,
         IRefreshTokenRepository refreshTokenRepository,
@@ -45,7 +50,14 @@ public class AuthManager : IAuthService
         _userService = userService;
     }
 
-
+    public AuthManager(IUserOperationClaimRepository userOperationClaimRepository1, IRefreshTokenRepository refreshTokenRepository1, ITokenHelper<Guid, int> tokenHelper1, IConfiguration configuration, IMapper mapper)
+    {
+        UserOperationClaimRepository = userOperationClaimRepository1;
+        RefreshTokenRepository = refreshTokenRepository1;
+        TokenHelper = tokenHelper1;
+        Configuration = configuration;
+        _mapper = mapper;
+    }
 
     public async Task<AccessToken> CreateAccessToken(User user)
     {

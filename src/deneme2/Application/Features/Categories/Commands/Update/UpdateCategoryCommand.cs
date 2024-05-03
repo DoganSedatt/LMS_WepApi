@@ -12,7 +12,7 @@ namespace Application.Features.Categories.Commands.Update;
 public class UpdateCategoryCommand : IRequest<UpdatedCategoryResponse>, ICacheRemoverRequest, ILoggableRequest, ITransactionalRequest
 {
     public Guid Id { get; set; }
-    public string Name { get; set; }
+    public string CategoryName { get; set; }
 
     public bool BypassCache { get; }
     public string? CacheKey { get; }

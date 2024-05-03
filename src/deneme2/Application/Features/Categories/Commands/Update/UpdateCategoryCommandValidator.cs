@@ -7,6 +7,6 @@ public class UpdateCategoryCommandValidator : AbstractValidator<UpdateCategoryCo
     public UpdateCategoryCommandValidator()
     {
         RuleFor(c => c.Id).NotEmpty();
-        RuleFor(c => c.Name).NotEmpty();
+        RuleFor(c => c.CategoryName).NotEmpty();
     }
 }

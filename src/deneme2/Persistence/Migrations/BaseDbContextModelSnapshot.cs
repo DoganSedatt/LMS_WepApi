@@ -37,10 +37,10 @@ namespace Persistence.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("DeletedDate");
 
-                    b.Property<string>("IdendityNumber")
+                    b.Property<string>("IdentityNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnName("IdendityNumber");
+                        .HasColumnName("IdentityNumber");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -98,6 +98,9 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("Id");
+
+                    b.Property<Guid>("AuthorId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uniqueidentifier");
@@ -283,6 +286,50 @@ namespace Persistence.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("EmailAuthenticators", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entities.LoanTransaction", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Id");
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("BookId");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedDate");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("DeletedDate");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("MemberId");
+
+                    b.Property<bool>("ReturnStatus")
+                        .HasColumnType("bit")
+                        .HasColumnName("ReturnStatus");
+
+                    b.Property<DateTime>("ReturnTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("ReturnTime");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedDate");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("MemberId");
+
+                    b.ToTable("LoanTransactions", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Member", b =>
@@ -653,685 +700,649 @@ namespace Persistence.Migrations
                         {
                             Id = 48,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Admin"
+                            Name = "AuthorBooks.Admin"
                         },
                         new
                         {
                             Id = 49,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Read"
+                            Name = "AuthorBooks.Read"
                         },
                         new
                         {
                             Id = 50,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Write"
+                            Name = "AuthorBooks.Write"
                         },
                         new
                         {
                             Id = 51,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Create"
+                            Name = "AuthorBooks.Create"
                         },
                         new
                         {
                             Id = 52,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Update"
+                            Name = "AuthorBooks.Update"
                         },
                         new
                         {
                             Id = 53,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Delete"
+                            Name = "AuthorBooks.Delete"
                         },
                         new
                         {
                             Id = 54,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "AuthorBooks.Admin"
+                            Name = "CategoryBooks.Admin"
                         },
                         new
                         {
                             Id = 55,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "AuthorBooks.Read"
+                            Name = "CategoryBooks.Read"
                         },
                         new
                         {
                             Id = 56,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "AuthorBooks.Write"
+                            Name = "CategoryBooks.Write"
                         },
                         new
                         {
                             Id = 57,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "AuthorBooks.Create"
+                            Name = "CategoryBooks.Create"
                         },
                         new
                         {
                             Id = 58,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "AuthorBooks.Update"
+                            Name = "CategoryBooks.Update"
                         },
                         new
                         {
                             Id = 59,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "AuthorBooks.Delete"
+                            Name = "CategoryBooks.Delete"
                         },
                         new
                         {
                             Id = 60,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "CategoryBooks.Admin"
+                            Name = "Books.Admin"
                         },
                         new
                         {
                             Id = 61,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "CategoryBooks.Read"
+                            Name = "Books.Read"
                         },
                         new
                         {
                             Id = 62,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "CategoryBooks.Write"
+                            Name = "Books.Write"
                         },
                         new
                         {
                             Id = 63,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "CategoryBooks.Create"
+                            Name = "Books.Create"
                         },
                         new
                         {
                             Id = 64,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "CategoryBooks.Update"
+                            Name = "Books.Update"
                         },
                         new
                         {
                             Id = 65,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "CategoryBooks.Delete"
+                            Name = "Books.Delete"
                         },
                         new
                         {
                             Id = 66,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Admin"
+                            Name = "CategoryBooks.Admin"
                         },
                         new
                         {
                             Id = 67,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Read"
+                            Name = "CategoryBooks.Read"
                         },
                         new
                         {
                             Id = 68,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Write"
+                            Name = "CategoryBooks.Write"
                         },
                         new
                         {
                             Id = 69,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Create"
+                            Name = "CategoryBooks.Create"
                         },
                         new
                         {
                             Id = 70,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Update"
+                            Name = "CategoryBooks.Update"
                         },
                         new
                         {
                             Id = 71,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Delete"
+                            Name = "CategoryBooks.Delete"
                         },
                         new
                         {
                             Id = 72,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Admin"
+                            Name = "Categories.Admin"
                         },
                         new
                         {
                             Id = 73,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Read"
+                            Name = "Categories.Read"
                         },
                         new
                         {
                             Id = 74,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Write"
+                            Name = "Categories.Write"
                         },
                         new
                         {
                             Id = 75,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Create"
+                            Name = "Categories.Create"
                         },
                         new
                         {
                             Id = 76,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Update"
+                            Name = "Categories.Update"
                         },
                         new
                         {
                             Id = 77,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Delete"
+                            Name = "Categories.Delete"
                         },
                         new
                         {
                             Id = 78,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "CategoryBooks.Admin"
+                            Name = "Books.Admin"
                         },
                         new
                         {
                             Id = 79,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "CategoryBooks.Read"
+                            Name = "Books.Read"
                         },
                         new
                         {
                             Id = 80,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "CategoryBooks.Write"
+                            Name = "Books.Write"
                         },
                         new
                         {
                             Id = 81,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "CategoryBooks.Create"
+                            Name = "Books.Create"
                         },
                         new
                         {
                             Id = 82,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "CategoryBooks.Update"
+                            Name = "Books.Update"
                         },
                         new
                         {
                             Id = 83,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "CategoryBooks.Delete"
+                            Name = "Books.Delete"
                         },
                         new
                         {
                             Id = 84,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Categories.Admin"
+                            Name = "Publishers.Admin"
                         },
                         new
                         {
                             Id = 85,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Categories.Read"
+                            Name = "Publishers.Read"
                         },
                         new
                         {
                             Id = 86,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Categories.Write"
+                            Name = "Publishers.Write"
                         },
                         new
                         {
                             Id = 87,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Categories.Create"
+                            Name = "Publishers.Create"
                         },
                         new
                         {
                             Id = 88,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Categories.Update"
+                            Name = "Publishers.Update"
                         },
                         new
                         {
                             Id = 89,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Categories.Delete"
+                            Name = "Publishers.Delete"
                         },
                         new
                         {
                             Id = 90,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Admin"
+                            Name = "Books.Admin"
                         },
                         new
                         {
                             Id = 91,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Read"
+                            Name = "Books.Read"
                         },
                         new
                         {
                             Id = 92,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Write"
+                            Name = "Books.Write"
                         },
                         new
                         {
                             Id = 93,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Create"
+                            Name = "Books.Create"
                         },
                         new
                         {
                             Id = 94,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Update"
+                            Name = "Books.Update"
                         },
                         new
                         {
                             Id = 95,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Delete"
+                            Name = "Books.Delete"
                         },
                         new
                         {
                             Id = 96,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Admin"
+                            Name = "Publishers.Admin"
                         },
                         new
                         {
                             Id = 97,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Read"
+                            Name = "Publishers.Read"
                         },
                         new
                         {
                             Id = 98,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Write"
+                            Name = "Publishers.Write"
                         },
                         new
                         {
                             Id = 99,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Create"
+                            Name = "Publishers.Create"
                         },
                         new
                         {
                             Id = 100,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Update"
+                            Name = "Publishers.Update"
                         },
                         new
                         {
                             Id = 101,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Delete"
+                            Name = "Publishers.Delete"
                         },
                         new
                         {
                             Id = 102,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Admin"
+                            Name = "Books.Admin"
                         },
                         new
                         {
                             Id = 103,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Read"
+                            Name = "Books.Read"
                         },
                         new
                         {
                             Id = 104,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Write"
+                            Name = "Books.Write"
                         },
                         new
                         {
                             Id = 105,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Create"
+                            Name = "Books.Create"
                         },
                         new
                         {
                             Id = 106,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Update"
+                            Name = "Books.Update"
                         },
                         new
                         {
                             Id = 107,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Delete"
+                            Name = "Books.Delete"
                         },
                         new
                         {
                             Id = 108,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Admin"
+                            Name = "Publishers.Admin"
                         },
                         new
                         {
                             Id = 109,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Read"
+                            Name = "Publishers.Read"
                         },
                         new
                         {
                             Id = 110,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Write"
+                            Name = "Publishers.Write"
                         },
                         new
                         {
                             Id = 111,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Create"
+                            Name = "Publishers.Create"
                         },
                         new
                         {
                             Id = 112,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Update"
+                            Name = "Publishers.Update"
                         },
                         new
                         {
                             Id = 113,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Delete"
+                            Name = "Publishers.Delete"
                         },
                         new
                         {
                             Id = 114,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Admin"
+                            Name = "Books.Admin"
                         },
                         new
                         {
                             Id = 115,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Read"
+                            Name = "Books.Read"
                         },
                         new
                         {
                             Id = 116,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Write"
+                            Name = "Books.Write"
                         },
                         new
                         {
                             Id = 117,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Create"
+                            Name = "Books.Create"
                         },
                         new
                         {
                             Id = 118,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Update"
+                            Name = "Books.Update"
                         },
                         new
                         {
                             Id = 119,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Delete"
+                            Name = "Books.Delete"
                         },
                         new
                         {
                             Id = 120,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Admin"
+                            Name = "BookPublishers.Admin"
                         },
                         new
                         {
                             Id = 121,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Read"
+                            Name = "BookPublishers.Read"
                         },
                         new
                         {
                             Id = 122,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Write"
+                            Name = "BookPublishers.Write"
                         },
                         new
                         {
                             Id = 123,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Create"
+                            Name = "BookPublishers.Create"
                         },
                         new
                         {
                             Id = 124,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Update"
+                            Name = "BookPublishers.Update"
                         },
                         new
                         {
                             Id = 125,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Authors.Delete"
+                            Name = "BookPublishers.Delete"
                         },
                         new
                         {
                             Id = 126,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Admin"
+                            Name = "Publishers.Admin"
                         },
                         new
                         {
                             Id = 127,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Read"
+                            Name = "Publishers.Read"
                         },
                         new
                         {
                             Id = 128,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Write"
+                            Name = "Publishers.Write"
                         },
                         new
                         {
                             Id = 129,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Create"
+                            Name = "Publishers.Create"
                         },
                         new
                         {
                             Id = 130,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Update"
+                            Name = "Publishers.Update"
                         },
                         new
                         {
                             Id = 131,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Delete"
+                            Name = "Publishers.Delete"
                         },
                         new
                         {
                             Id = 132,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Admin"
+                            Name = "Members.Admin"
                         },
                         new
                         {
                             Id = 133,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Read"
+                            Name = "Members.Read"
                         },
                         new
                         {
                             Id = 134,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Write"
+                            Name = "Members.Write"
                         },
                         new
                         {
                             Id = 135,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Create"
+                            Name = "Members.Create"
                         },
                         new
                         {
                             Id = 136,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Update"
+                            Name = "Members.Update"
                         },
                         new
                         {
                             Id = 137,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Delete"
+                            Name = "Members.Delete"
                         },
                         new
                         {
                             Id = 138,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Admin"
+                            Name = "LoanTransactions.Admin"
                         },
                         new
                         {
                             Id = 139,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Read"
+                            Name = "LoanTransactions.Read"
                         },
                         new
                         {
                             Id = 140,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Write"
+                            Name = "LoanTransactions.Write"
                         },
                         new
                         {
                             Id = 141,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Create"
+                            Name = "LoanTransactions.Create"
                         },
                         new
                         {
                             Id = 142,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Update"
+                            Name = "LoanTransactions.Update"
                         },
                         new
                         {
                             Id = 143,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books.Delete"
+                            Name = "LoanTransactions.Delete"
                         },
                         new
                         {
                             Id = 144,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "BookPublishers.Admin"
+                            Name = "Authors.Admin"
                         },
                         new
                         {
                             Id = 145,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "BookPublishers.Read"
+                            Name = "Authors.Read"
                         },
                         new
                         {
                             Id = 146,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "BookPublishers.Write"
+                            Name = "Authors.Write"
                         },
                         new
                         {
                             Id = 147,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "BookPublishers.Create"
+                            Name = "Authors.Create"
                         },
                         new
                         {
                             Id = 148,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "BookPublishers.Update"
+                            Name = "Authors.Update"
                         },
                         new
                         {
                             Id = 149,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "BookPublishers.Delete"
+                            Name = "Authors.Delete"
                         },
                         new
                         {
                             Id = 150,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Admin"
+                            Name = "LoanTransactions.Admin"
                         },
                         new
                         {
                             Id = 151,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Read"
+                            Name = "LoanTransactions.Read"
                         },
                         new
                         {
                             Id = 152,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Write"
+                            Name = "LoanTransactions.Write"
                         },
                         new
                         {
                             Id = 153,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Create"
+                            Name = "LoanTransactions.Create"
                         },
                         new
                         {
                             Id = 154,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Update"
+                            Name = "LoanTransactions.Update"
                         },
                         new
                         {
                             Id = 155,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Publishers.Delete"
-                        },
-                        new
-                        {
-                            Id = 156,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Members.Admin"
-                        },
-                        new
-                        {
-                            Id = 157,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Members.Read"
-                        },
-                        new
-                        {
-                            Id = 158,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Members.Write"
-                        },
-                        new
-                        {
-                            Id = 159,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Members.Create"
-                        },
-                        new
-                        {
-                            Id = 160,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Members.Update"
-                        },
-                        new
-                        {
-                            Id = 161,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Members.Delete"
+                            Name = "LoanTransactions.Delete"
                         });
                 });
 
@@ -1508,12 +1519,12 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d4f4b810-eb78-4a29-9015-a0cfcd286168"),
+                            Id = new Guid("90a99db4-b85f-4f83-8ce6-ce05ed598f5a"),
                             AuthenticatorType = 0,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "narch@kodlama.io",
-                            PasswordHash = new byte[] { 107, 63, 96, 16, 13, 190, 163, 141, 189, 212, 225, 255, 183, 113, 151, 15, 59, 4, 240, 174, 184, 21, 188, 82, 153, 66, 6, 121, 106, 196, 122, 76, 66, 180, 3, 203, 182, 217, 100, 77, 212, 231, 28, 179, 186, 114, 40, 7, 199, 43, 170, 100, 117, 120, 86, 149, 22, 77, 131, 252, 44, 246, 227, 72 },
-                            PasswordSalt = new byte[] { 79, 99, 0, 82, 93, 88, 166, 212, 112, 168, 161, 197, 60, 187, 107, 50, 225, 230, 188, 70, 134, 20, 174, 255, 202, 193, 12, 148, 245, 59, 162, 127, 135, 139, 222, 48, 245, 162, 136, 212, 242, 16, 3, 247, 93, 65, 113, 124, 158, 254, 151, 25, 71, 60, 160, 155, 154, 58, 200, 119, 157, 27, 78, 36, 51, 117, 91, 173, 139, 88, 120, 180, 229, 227, 5, 12, 229, 59, 43, 72, 215, 203, 33, 105, 48, 202, 117, 1, 199, 171, 90, 246, 129, 58, 185, 166, 115, 204, 122, 134, 94, 255, 75, 225, 111, 241, 179, 126, 230, 25, 194, 229, 68, 54, 220, 85, 76, 237, 21, 20, 235, 141, 217, 194, 189, 73, 248, 197 }
+                            PasswordHash = new byte[] { 69, 2, 36, 88, 6, 68, 183, 252, 15, 201, 90, 134, 58, 112, 78, 223, 33, 204, 168, 87, 62, 227, 255, 222, 134, 14, 87, 247, 199, 80, 18, 223, 51, 198, 18, 180, 191, 240, 88, 95, 66, 109, 30, 107, 87, 100, 133, 74, 176, 163, 162, 17, 62, 198, 177, 154, 101, 69, 98, 201, 38, 125, 18, 97 },
+                            PasswordSalt = new byte[] { 70, 230, 136, 197, 27, 246, 201, 42, 180, 205, 29, 29, 132, 201, 34, 181, 157, 194, 123, 134, 16, 78, 168, 125, 147, 252, 152, 243, 154, 102, 222, 234, 180, 110, 214, 196, 225, 156, 119, 59, 173, 181, 237, 48, 11, 23, 118, 192, 54, 63, 120, 221, 175, 230, 224, 83, 209, 74, 191, 190, 133, 152, 33, 173, 112, 111, 36, 240, 226, 186, 29, 254, 26, 108, 34, 56, 110, 114, 228, 33, 83, 217, 143, 248, 223, 255, 253, 210, 13, 117, 207, 128, 46, 56, 234, 183, 89, 25, 162, 51, 201, 200, 244, 85, 181, 56, 123, 135, 135, 237, 97, 179, 210, 169, 221, 246, 231, 181, 141, 224, 139, 230, 174, 221, 86, 119, 130, 153 }
                         });
                 });
 
@@ -1555,10 +1566,10 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5cb49993-32fd-4dfc-b4f1-55d6a5dc75cb"),
+                            Id = new Guid("ee3692fb-7438-4114-9500-8a6d56205662"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OperationClaimId = 1,
-                            UserId = new Guid("d4f4b810-eb78-4a29-9015-a0cfcd286168")
+                            UserId = new Guid("90a99db4-b85f-4f83-8ce6-ce05ed598f5a")
                         });
                 });
 
@@ -1628,6 +1639,25 @@ namespace Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Domain.Entities.LoanTransaction", b =>
+                {
+                    b.HasOne("Domain.Entities.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Member", "Member")
+                        .WithMany()
+                        .HasForeignKey("MemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Member");
                 });
 
             modelBuilder.Entity("Domain.Entities.Member", b =>

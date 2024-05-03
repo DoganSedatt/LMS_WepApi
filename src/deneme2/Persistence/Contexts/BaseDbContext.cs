@@ -24,6 +24,7 @@ public class BaseDbContext : DbContext
     public DbSet<Publisher> Publishers { get; set; }
     public DbSet<BookPublisher> BookPublishers { get; set; }
     public DbSet<Member> Members { get; set; }
+    public DbSet<LoanTransaction> LoanTransactions { get; set; }
 
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration)
         : base(dbContextOptions)

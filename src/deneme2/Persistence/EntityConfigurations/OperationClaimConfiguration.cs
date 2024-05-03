@@ -9,11 +9,13 @@ using NArchitecture.Core.Security.Constants;
 using Application.Features.Books.Constants;
 using Application.Features.Categories.Constants;
 using Application.Features.Authors.Constants;
+
 using Application.Features.AuthorBooks.Constants;
 using Application.Features.CategoryBooks.Constants;
 using Application.Features.Publishers.Constants;
 using Application.Features.BookPublishers.Constants;
 using Application.Features.Members.Constants;
+using Application.Features.LoanTransactions.Constants;
 
 
 namespace Persistence.EntityConfigurations;
@@ -163,18 +165,7 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         #endregion
         
         
-        #region Authors
-        featureOperationClaims.AddRange(
-            [
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Admin },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Read },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Write },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Create },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Update },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Delete },
-            ]
-        );
-        #endregion
+        
         
         
         #region AuthorBooks
@@ -204,20 +195,7 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         );
         #endregion
         
-        
-        #region Authors
-        featureOperationClaims.AddRange(
-            [
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Admin },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Read },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Write },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Create },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Update },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Delete },
-            ]
-        );
-        #endregion
-        
+      
         
         #region Books
         featureOperationClaims.AddRange(
@@ -261,18 +239,7 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         #endregion
         
         
-        #region Authors
-        featureOperationClaims.AddRange(
-            [
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Admin },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Read },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Write },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Create },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Update },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Delete },
-            ]
-        );
-        #endregion
+       
         
         
         #region Books
@@ -332,19 +299,7 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         );
         #endregion
         
-        
-        #region Authors
-        featureOperationClaims.AddRange(
-            [
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Admin },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Read },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Write },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Create },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Update },
-                new() { Id = ++lastId, Name = AuthorsOperationClaims.Delete },
-            ]
-        );
-        #endregion
+     
         
         
         #region Books
@@ -430,6 +385,48 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         );
         #endregion
         
+        
+        #region LoanTransactions
+        featureOperationClaims.AddRange(
+            [
+                new() { Id = ++lastId, Name = LoanTransactionsOperationClaims.Admin },
+                new() { Id = ++lastId, Name = LoanTransactionsOperationClaims.Read },
+                new() { Id = ++lastId, Name = LoanTransactionsOperationClaims.Write },
+                new() { Id = ++lastId, Name = LoanTransactionsOperationClaims.Create },
+                new() { Id = ++lastId, Name = LoanTransactionsOperationClaims.Update },
+                new() { Id = ++lastId, Name = LoanTransactionsOperationClaims.Delete },
+            ]
+        );
+        #endregion
+        
+     
+     #region Authors
+     featureOperationClaims.AddRange(
+         [
+             new() { Id = ++lastId, Name = AuthorsOperationClaims.Admin },
+             new() { Id = ++lastId, Name = AuthorsOperationClaims.Read },
+             new() { Id = ++lastId, Name = AuthorsOperationClaims.Write },
+             new() { Id = ++lastId, Name = AuthorsOperationClaims.Create },
+             new() { Id = ++lastId, Name = AuthorsOperationClaims.Update },
+             new() { Id = ++lastId, Name = AuthorsOperationClaims.Delete },
+         ]
+     );
+     #endregion
+     
+     
+     #region LoanTransactions
+     featureOperationClaims.AddRange(
+         [
+             new() { Id = ++lastId, Name = LoanTransactionsOperationClaims.Admin },
+             new() { Id = ++lastId, Name = LoanTransactionsOperationClaims.Read },
+             new() { Id = ++lastId, Name = LoanTransactionsOperationClaims.Write },
+             new() { Id = ++lastId, Name = LoanTransactionsOperationClaims.Create },
+             new() { Id = ++lastId, Name = LoanTransactionsOperationClaims.Update },
+             new() { Id = ++lastId, Name = LoanTransactionsOperationClaims.Delete },
+         ]
+     );
+     #endregion
+     
         return featureOperationClaims;
     }
 #pragma warning restore S1854 // Unused assignments should be removed

@@ -6,6 +6,7 @@ using Application.Features.Books.Queries.GetList;
 using NArchitecture.Core.Application.Requests;
 using NArchitecture.Core.Application.Responses;
 using Microsoft.AspNetCore.Mvc;
+using Application.Features.Books.Queries.GetBookByAuthorId;
 
 namespace WebAPI.Controllers;
 
@@ -50,5 +51,13 @@ public class BooksController : BaseController
         GetListBookQuery getListBookQuery = new() { PageRequest = pageRequest };
         GetListResponse<GetListBookListItemDto> response = await Mediator.Send(getListBookQuery);
         return Ok(response);
+    }
+
+    [HttpGet("getbooksbyauthorid")]
+    public async Task<IActionResult> GetListBookByAuthorId([FromQuery] PageRequest pageRequest, Guid authorId)
+    {
+        GetListBookByAuthorIdQuery query = new() { PageRequest = pageRequest, AuthorId = authorId };
+        var result = await Mediator.Send(query);
+        return Ok(result);
     }
 }

@@ -22,11 +22,13 @@ using NArchitecture.Core.Security.DependencyInjection;
 using Application.Services.Books;
 using Application.Services.Categories;
 using Application.Services.Authors;
+
 using Application.Services.AuthorBooks;
 using Application.Services.CategoryBooks;
 using Application.Services.Publishers;
 using Application.Services.BookPublishers;
 using Application.Services.Members;
+using Application.Services.LoanTransactions;
 
 
 namespace Application;
@@ -72,26 +74,29 @@ public static class ApplicationServiceRegistration
         services.AddScoped<ICategoryService, CategoryManager>();
         services.AddScoped<IBookService, BookManager>();
         services.AddScoped<ICategoryService, CategoryManager>();
-        services.AddScoped<IAuthorService, AuthorManager>();
+    
         services.AddScoped<IAuthorBookService, AuthorBookManager>();
         services.AddScoped<ICategoryBookService, CategoryBookManager>();
-        services.AddScoped<IAuthorService, AuthorManager>();
+   
         services.AddScoped<IBookService, BookManager>();
         services.AddScoped<ICategoryBookService, CategoryBookManager>();
         services.AddScoped<ICategoryService, CategoryManager>();
-        services.AddScoped<IAuthorService, AuthorManager>();
+
         services.AddScoped<IBookService, BookManager>();
 
         services.AddScoped<IPublisherService, PublisherManager>();
         services.AddScoped<IBookService, BookManager>();
         services.AddScoped<IPublisherService, PublisherManager>();
-        services.AddScoped<IAuthorService, AuthorManager>();
+
         services.AddScoped<IBookService, BookManager>();
         services.AddScoped<IPublisherService, PublisherManager>();
         services.AddScoped<IBookService, BookManager>();
         services.AddScoped<IBookPublisherService, BookPublisherManager>();
         services.AddScoped<IPublisherService, PublisherManager>();
         services.AddScoped<IMemberService, MemberManager>();
+        services.AddScoped<ILoanTransactionService, LoanTransactionManager>();
+   services.AddScoped<IAuthorService, AuthorManager>();
+   services.AddScoped<ILoanTransactionService, LoanTransactionManager>();
         return services;
     }
 

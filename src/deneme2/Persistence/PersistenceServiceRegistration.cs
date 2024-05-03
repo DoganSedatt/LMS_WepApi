@@ -26,27 +26,30 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IBookRepository, BookRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
-        services.AddScoped<IAuthorRepository, AuthorRepository>();
+        
         services.AddScoped<IAuthorBookRepository, AuthorBookRepository>();
         services.AddScoped<ICategoryBookRepository, CategoryBookRepository>();
-        services.AddScoped<IAuthorRepository, AuthorRepository>();
+        
         services.AddScoped<IBookRepository, BookRepository>();
         services.AddScoped<ICategoryBookRepository, CategoryBookRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
-        services.AddScoped<IAuthorRepository, AuthorRepository>();
+        
         services.AddScoped<IBookRepository, BookRepository>();
 
 
         services.AddScoped<IPublisherRepository, PublisherRepository>();
         services.AddScoped<IBookRepository, BookRepository>();
         services.AddScoped<IPublisherRepository, PublisherRepository>();
-        services.AddScoped<IAuthorRepository, AuthorRepository>();
+        
         services.AddScoped<IBookRepository, BookRepository>();
         services.AddScoped<IPublisherRepository, PublisherRepository>();
         services.AddScoped<IBookRepository, BookRepository>();
         services.AddScoped<IBookPublisherRepository, BookPublisherRepository>();
         services.AddScoped<IPublisherRepository, PublisherRepository>();
         services.AddScoped<IMemberRepository, MemberRepository>();
+        services.AddScoped<ILoanTransactionRepository, LoanTransactionRepository>();
+        services.AddScoped<IAuthorRepository, AuthorRepository>();
+        services.AddScoped<ILoanTransactionRepository, LoanTransactionRepository>();
         return services;
     }
 }
